@@ -11,6 +11,7 @@ function addTask(data) {
 
 function deleteTask(id) {
   toDoTasks.value = toDoTasks.value.filter((el) => el.id !== id)
+  console.log('hi')
 }
 
 const editTask = (data) => {

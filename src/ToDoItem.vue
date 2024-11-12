@@ -33,7 +33,7 @@ function setMode(text) {
 
 <template>
   <div class="toDoContainer">
-    <label class="checkbox-btn">
+    <label class="custom-checkbox">
       <input type="checkbox" />
     </label>
     <div class="textContainer">
@@ -41,19 +41,19 @@ function setMode(text) {
         <div v-if="editMode">
           <input v-model="title" type="text" />
         </div>
-        <div v-else>
+        <div v-else class="taskName">
           {{ task.taskName }}
         </div>
       </div>
       <div v-if="editMode">
         <input v-model="description" type="text"/>
       </div>
-      <div v-else>
+      <div v-else class="taskDescription">
         {{ task.taskDescription }}
       </div>
     </div>
-    <button @click="deleteTask" class="button">Удалить</button>
-    <div>
+    <div class="buttonsContainer">
+      <button @click="deleteTask" class="button">Удалить</button>
       <button v-if="editMode === false" @click="setMode('edit')" class="button-two">
         <img src="./assets/edit.jpeg" alt="edit button" class="image-button" />
       </button>
@@ -75,6 +75,7 @@ function setMode(text) {
   background-color: #f4f2ff;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .textContainer {
@@ -111,5 +112,29 @@ function setMode(text) {
 
 .button-two:hover {
   box-shadow: 0 0 0 2px white, 0 0 0 4px #2B1887;
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-checkbox {
+  background-color: rgba(219, 157, 252, 0.303);
+  border-radius: 5px;
+}
+
+.taskName {
+ font-size: 25px;
+ font-weight: 500;
+}
+
+.taskDescription {
+  font-size: 20px;
+  font-style: italic;
+  color: #2B1887;
+  ;
 }
 </style>

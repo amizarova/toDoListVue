@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import NewToDo from './NewToDo.vue';
 import ToDoItem from './ToDoItem.vue';
+import CardPattern from './CardPattern.vue';
 
 const toDoTasks = ref([])
 
@@ -24,6 +25,21 @@ const editTask = (data) => {
   })
   toDoTasks.value = []
 }
+
+const cards = [
+  {
+    id: 1,
+    isImportant: true,
+  },
+  {
+    id: 2,
+    isImportant: false,
+  },
+  {
+    id: 3,
+    isImportant: true,
+  },
+]
 </script>
 
 <template>
@@ -38,7 +54,6 @@ const editTask = (data) => {
         @delete-task="deleteTask(task.id)"
         @editTask="editTask"
       >
-
       </ToDoItem>
     </div>
     <NewToDo @add-task="addTask">
@@ -46,6 +61,9 @@ const editTask = (data) => {
     </NewToDo>
   </div>
 </div>
+<div class="cards">
+    <CardPattern v-for="(card, index) in cards" :key="index" :is-important="card.isImportant"/>
+  </div>
 </template>
 
 <style>
@@ -77,6 +95,12 @@ const editTask = (data) => {
 
 body {
   background-color: #2B1887;
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 }
 
 </style>

@@ -24,7 +24,7 @@ defineProps({
     display: flex;
     justify-content: center;
     align-items: center;
-    border: solid 2px white;
+    border: solid 1px white;
     padding: 10px;
     background-image: url("assets/notImportantCat.jpg");
     background-size: cover;
@@ -32,6 +32,6 @@ defineProps({
 .important {
     background-color: rgb(211, 165, 255);
     background-image: url("assets/importantCat.webp");
-    border: solid 2px rgb(0, 0, 0);
+    border: solid 1px rgb(0, 0, 0);
 }
 </style>
